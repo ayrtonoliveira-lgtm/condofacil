@@ -1,0 +1,17 @@
+{
+  "errors": [],
+  "overflow": false,
+  "rules": {
+    "conflict": "Esse período já está ocupado. Escolha outro horário.",
+    "consecutive": "",
+    "inverted": "Use um intervalo válido entre 08h e 22h.",
+    "framework": "3.5.21"
+  },
+  "flows": [
+    "login morador",
+    "criar reserva",
+    "enviar mensagem",
+    "login administração",
+    "publicar aviso"
+  ]
+}
