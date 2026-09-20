@@ -1,0 +1,4 @@
+gerados/
+__pycache__/
+*.sqlite3
+*.sqlite3-*

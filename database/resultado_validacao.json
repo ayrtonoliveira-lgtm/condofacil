@@ -1,0 +1,148 @@
+{
+  "sqlite": "3.53.1",
+  "python": "3.12.14",
+  "testes": [
+    {
+      "teste": "Reserva sobreposta",
+      "resultado": "PASS",
+      "evidencia": "Horario indisponivel"
+    },
+    {
+      "teste": "Conflito em UPDATE",
+      "resultado": "PASS",
+      "evidencia": "Horario indisponivel"
+    },
+    {
+      "teste": "Usuario inexistente",
+      "resultado": "PASS",
+      "evidencia": "FOREIGN KEY constraint failed"
+    },
+    {
+      "teste": "Horario invertido",
+      "resultado": "PASS",
+      "evidencia": "CHECK constraint failed: fim_min <= 1320 AND fim_min > inicio_min"
+    },
+    {
+      "teste": "Horario fora de 08h-22h",
+      "resultado": "PASS",
+      "evidencia": "CHECK constraint failed: inicio_min >= 480"
+    },
+    {
+      "teste": "Data inexistente",
+      "resultado": "PASS",
+      "evidencia": "CHECK constraint failed: length(data)=10 AND data GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'\n   AND date(data,'+0 days') IS NOT NULL AND date(data,'+0 days')=data"
+    },
+    {
+      "teste": "Email duplicado sem distinguir maiusculas",
+      "resultado": "PASS",
+      "evidencia": "UNIQUE constraint failed: usuario.email"
+    },
+    {
+      "teste": "Perfil invalido",
+      "resultado": "PASS",
+      "evidencia": "CHECK constraint failed: perfil IN ('morador','admin')"
+    },
+    {
+      "teste": "Excluir usuario referenciado",
+      "resultado": "PASS",
+      "evidencia": "FOREIGN KEY constraint failed"
+    },
+    {
+      "teste": "Excluir area referenciada",
+      "resultado": "PASS",
+      "evidencia": "FOREIGN KEY constraint failed"
+    },
+    {
+      "teste": "Texto vazio",
+      "resultado": "PASS",
+      "evidencia": "CHECK constraint failed: length(trim(assunto)) BETWEEN 1 AND 100"
+    },
+    {
+      "teste": "Tipo incorreto em tabela STRICT",
+      "resultado": "PASS",
+      "evidencia": "cannot store TEXT value in INTEGER column area_comum.capacidade"
+    },
+    {
+      "teste": "Reutilizar horario cancelado",
+      "resultado": "PASS"
+    },
+    {
+      "teste": "Reativar reserva conflitante",
+      "resultado": "PASS",
+      "evidencia": "Horario indisponivel"
+    },
+    {
+      "teste": "Mesmo horario em outra area",
+      "resultado": "PASS"
+    },
+    {
+      "teste": "Mesmo horario em outra data",
+      "resultado": "PASS"
+    },
+    {
+      "teste": "Insercao de reserva consecutiva",
+      "resultado": "PASS"
+    },
+    {
+      "teste": "Atualizacao para cancelada",
+      "resultado": "PASS"
+    },
+    {
+      "teste": "Remocao da mensagem de teste",
+      "resultado": "PASS"
+    },
+    {
+      "teste": "Remocao em cascata da resposta",
+      "resultado": "PASS"
+    },
+    {
+      "teste": "Integridade referencial",
+      "resultado": "PASS"
+    },
+    {
+      "teste": "Integridade do banco",
+      "resultado": "PASS"
+    }
+  ],
+  "total": 22,
+  "agenda": [
+    [
+      1,
+      "Marina Demo",
+      "Salao de festas",
+      "2026-10-10",
+      "10:00",
+      "12:00"
+    ],
+    [
+      3,
+      "Alex Demo",
+      "Salao de festas",
+      "2026-10-10",
+      "12:00",
+      "14:00"
+    ]
+  ],
+  "ocupacao": [
+    [
+      "Salao de festas",
+      2
+    ],
+    [
+      "Churrasqueira",
+      0
+    ],
+    [
+      "Quadra",
+      0
+    ]
+  ],
+  "contagens": {
+    "usuario": 3,
+    "area_comum": 3,
+    "reserva": 3,
+    "aviso": 1,
+    "mensagem": 1,
+    "resposta": 1
+  }
+}
